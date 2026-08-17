@@ -4,10 +4,12 @@ A portable Claude Code workflow kit: one **manager window** at the top of a dev 
 orchestrates per-project sessions and agents — it writes instructions, verifies what comes
 back, resolves merges, and rules on decisions. The pattern is hierarchical: the top-level
 manager dispatches to per-project windows, and each project can run its **own manager one
-level down** that orchestrates executors inside that project. No manager window at any
-level implements code — implementation only ever happens at the executor level. This repo
-carries the skills that make the pattern work and a bootstrap prompt that stands it up on
-a fresh machine.
+level down** that orchestrates executors inside that project. The top-level manager stays
+out of the code by preference — dispatch and review is its job — while project-level
+managers may implement directly when that's the sensible move. One style rule runs all the
+way down the line: **laconic communication** — lead with the answer, no padding, terse but
+never vague. This repo carries the skills that make the pattern work and a bootstrap
+prompt that stands it up on a fresh machine.
 
 The pattern was grown on one machine at single-project scope, then generalized. The core of
 it is discipline, not tooling: verify delegated claims before relaying them, classify every
