@@ -19,18 +19,15 @@ clear the previous one.
 
 ## Stage 1 — Survey (read-only; change nothing)
 
-1. Enumerate every project directory here. For each: is it a git repo; current branch;
-   uncommitted changes; unpushed commits; date of last commit; does it have its own
-   CLAUDE.md / AGENTS.md / planning system (`.planning/`, `docs/`, etc.).
-2. Report what already exists at the user level: `~/.claude/CLAUDE.md`, `~/.claude/skills/`,
-   installed plugins/marketplaces, MCP servers.
-3. Produce **THE BOARD** — one table: project | branch | dirty/clean | unpushed | in-flight
-   work you can detect | planning maturity. The board is the manager's first artifact every
-   session, always rebuilt from `git` and the filesystem, never from memory.
-4. Flag anything that looks mid-flight (dirty trees, stale branches, half-finished work) as
-   an open thread with a suggested owner and trigger — do not resolve any of it.
+1. Invoke the **`board` skill** on this directory. It rebuilds THE BOARD from git and the
+   filesystem (portfolio mode: one row per project), flags in-flight work as open threads
+   with owners and triggers, and offers to persist a kanban `BOARD.md` — my call whether
+   to take that offer now.
+2. Additionally report what exists at the user level (the board doesn't cover this):
+   `~/.claude/CLAUDE.md`, `~/.claude/skills/`, installed plugins/marketplaces, MCP servers.
 
-**GATE: present the board and stop. No writes until I say go.**
+**GATE: present the board and the tooling report, then stop. No other writes until I say
+go.**
 
 ## Stage 2 — The manager charter
 
@@ -72,9 +69,10 @@ overhead.
    source (run the test, read the diff, open the file) before acting on them.
 2. **Classify everything: confirmed / inferred / unknown.** Never present an inference as a
    verified fact. If a call chain or claim hasn't been traced to source, say so and stop.
-3. **The board first.** Every manager session opens by rebuilding the board from ground
-   truth (`git worktree list`, `git branch -vv`, `git status`, per-project state files) —
-   never from the previous session's memory.
+3. **The board first.** Every manager session opens by invoking the `board` skill —
+   ground truth from `git` and the filesystem, never the previous session's memory. Where
+   a persistent `BOARD.md` exists, the skill refreshes its surveyed zone and flags drift
+   against the curated cards; the human moves cards, never the survey.
 4. **Handover discipline.** Before a context boundary (compaction, end of day), write a
    handover using the `manager-handover` skill (or `context-handover` for a working
    window). Commit it. A handover that lives only in a chat window has already failed.
@@ -108,7 +106,7 @@ overhead.
 
 ## Stage 3 — Skill check
 
-Confirm the five kit skills are installed and loadable: `manager-handover`,
+Confirm the six kit skills are installed and loadable: `board`, `manager-handover`,
 `context-handover`, `debrief`, `debug-no-bs`, `wwcd`. If any are missing, link them from
 the cloned claude-manager-kit repo per its README. Report the result in one line.
 
