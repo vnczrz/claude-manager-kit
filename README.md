@@ -22,6 +22,7 @@ close every phase with a plain-language debrief.
 |---|---|
 | `BOOTSTRAP.md` | Paste-ready prompt that stands up a manager window at your dev root. Staged with hard gates — the agent surveys and reports before it writes anything. |
 | `skills/board` | Rebuild THE BOARD from ground truth in any directory — portfolio mode at a dev root (one row per project) or project mode inside a repo. Optionally persists as a kanban `BOARD.md`: surveyed zone regenerated every run, curated cards never touched, contradictions flagged as drift. |
+| `skills/unknowns` | Pre-fan-out unknowns pass: the four Rumsfeld quadrants walked against the dispatch being prepared, a domain primer when the owner is new to the territory, and each unknown routed to its cheapest resolution (interview, reference, probe, prototype) before tokens get spent. |
 | `skills/manager-handover` | End-of-session handoff for an orchestrator window: the board, delegations in flight, standing rulings, retractions, open threads — the map, not the narrative. |
 | `skills/context-handover` | End-of-session handoff for a working window: what landed vs what was only discussed, undocumented decisions, a copy-pasteable resume prompt. |
 | `skills/debrief` | Explain finished work to someone who wasn't in the weeds. Every weakness gets two explicit verdicts — observable? fixable? — and an honest classification: trade-off, open bet, or unnoticed gap. |
@@ -47,7 +48,7 @@ done
 (Prefer copies over symlinks? `cp -R ~/claude-manager-kit/skills/* ~/.claude/skills/` works
 the same; you just re-copy after pulling updates.)
 
-Verify: start any Claude Code session and ask it to list available skills — the six above
+Verify: start any Claude Code session and ask it to list available skills — the seven above
 should appear.
 
 ## Stand up a manager
