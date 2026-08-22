@@ -10,6 +10,20 @@ what the instruction doesn't know BEFORE the agents do, while it's still cheap. 
 state it serves: the owner talks only to the manager; everything else fans out already
 carrying the answers.
 
+## Interaction contract — this is a conversation, not a report
+
+**Never dump the full analysis as one wall of text.** Run it as a dialogue:
+
+- Use **AskUserQuestion** for every owner input: step 0's calibration, each quadrant's
+  decisions, the final accept/probe/defer calls. Options with the recommended one first;
+  the owner picks instead of reading.
+- Walk **one quadrant at a time**, surfacing at most the 2–3 items that matter in each —
+  a sentence or two of framing, then the question. Skip a quadrant that has nothing.
+- Primer beats are **one concept at a time**, delivered only at the moment it changes a
+  decision the owner is about to make — never a lecture up front.
+- The ONLY block-form output permitted is the final dispatch-readiness verdict, capped at
+  ~10 lines.
+
 ## Step 0 — the starting point
 
 Establish, by asking if not evident: where is the owner in their thought process (vague
