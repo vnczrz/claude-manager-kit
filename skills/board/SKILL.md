@@ -27,6 +27,10 @@ Everything comes from `git` and the filesystem. Never from what a previous sessi
   (`git log --oneline @{u}..` where an upstream exists); date of last commit
 - worktrees beyond the main checkout (`git worktree list`)
 - planning maturity: presence of CLAUDE.md / AGENTS.md / `.planning/` / `docs/`
+- todo lanes: if the project keeps a `todo/` directory (any depth under `docs/`, one file
+  per item, subdirectories as lanes), count open items per lane, excluding `done/`. Report
+  the count on the project's row. Never read the items into the board; the count is the
+  signal, the lane is the pointer
 - detectable in-flight work: dirty trees, branches ahead of origin, non-main checkouts
 
 **Project mode:**
@@ -35,6 +39,9 @@ Everything comes from `git` and the filesystem. Never from what a previous sessi
 - unpushed commits; open PRs via `gh pr list` if the repo has a remote and `gh` is present
 - project state files if the project keeps them (e.g. `.planning/STATE.md`, pending todos)
 - stale branches: merged into the default branch but still present
+- todo lanes, same rule as portfolio mode: per-lane open count for a `todo/` directory, listed
+  above the seam as its own line. Cards below the seam are the human's; the todo count never
+  becomes a card
 
 ## Step 3 — Present
 
