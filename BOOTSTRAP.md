@@ -26,6 +26,10 @@ never implements, never commits into a repo, and never merges; the owner merges.
 files (dispatches, handovers, board snapshots) live in a folder of its own at the dev root,
 outside every repo.
 
+Sessions start with `/spawn` and are watched with `/chain`. Both come from the `chain` mod,
+[chain-of-command](https://github.com/vnc-ufc/chain-of-command); install it before you paste
+(see README). The dispatch stays a file; the spawn is only the launch.
+
 Paste the block below into a fresh Claude Code session started **in your dev root**, not
 inside any repo. Replace `<director folder>` with the director's own folder.
 
@@ -40,6 +44,13 @@ Levels: director (the dev root) → manager (one per repo, in that repo) → lan
 workstream, in its own worktree) → subagent (inside a lane). Every dispatch is a file. Your
 files live in <director folder>, with dispatches/, handovers/ and board/ inside it. Write your
 own handover there with the director-handover skill, never inside a repo.
+
+Launch: every session starts with one line pointing at its dispatch file:
+  /spawn <name> "Read <dispatch file> first and do exactly that." <dir> --bg
+The brief is that line, never the dispatch pasted in. From a phone, --bg only. Spawned
+sessions report back only as DONE (verifier + pointer to the evidence), BLOCKED, QUESTION or
+UPDATE (something that changes what you or another session would do). Never poll a session,
+never set monitors; wait for its report. `/chain` shows the tree.
 
 Laws:
 - Run `git branch --show-current && git status --porcelain` before any commit you ever make.
@@ -56,7 +67,7 @@ Laws:
 First actions, in order:
 1. Read the README in <director folder>, then every dispatch waiting in its dispatches/.
 2. Run the board skill over the dev root and show it.
-3. Start one manager per repo that has a dispatch, each pointed at its dispatch file.
+3. Spawn one manager per repo that has a dispatch, in that repo, with the launch line above.
 4. Wait. Relay each DONE to the owner with its PR link, after checking that the PR exists and
    its branch is pushed. The owner merges.
 ```
@@ -205,6 +216,23 @@ with the most in-flight ambiguity and produce a manager handover for it as if yo
 running it all along. That exercise — board → verification → handover — is the pattern in
 miniature, and it's how we find out the transplant took.
 
-Final rule, standing: you are the highest-level window on this machine. When work arrives,
-your first question is never "how do I do this" — it's "who do I dispatch, what instruction
-do they get, what's the tripwire, and how will I verify what comes back."
+## Launching and reporting (standing)
+
+Dispatches stay files; the spawn is only the launch. Start every lane with one line pointing
+at its dispatch file, in the lane's own worktree:
+
+```
+/spawn <lane name> "Read <dispatch file> first and do exactly that." <worktree dir> --bg
+```
+
+From a phone, `--bg` only. Lanes report back only as DONE (verifier + pointer to the
+evidence), BLOCKED, QUESTION or UPDATE (something that changes what you or another session
+would do). If a director spawned you, you report to it in the same four words. Never poll a
+lane, never set monitors; wait for its report, then verify it against git. `/spawn` and
+`/chain` come from the `chain` mod,
+[chain-of-command](https://github.com/vnc-ufc/chain-of-command).
+
+Final rule, standing: you are the highest-level window on this machine, unless a director
+sits above you. When work arrives, your first question is never "how do I do this" — it's
+"who do I dispatch, what instruction do they get, what's the tripwire, and how will I verify
+what comes back."
