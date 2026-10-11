@@ -17,6 +17,8 @@ the least reliable artifact a manager can produce; this skill exists so that nev
 - Both (a repo that contains child repos) → ask which view the user wants, once.
 - Neither → say so and stop; there is nothing to survey.
 
+A director runs this skill from the dev root, so it gets portfolio mode: one row per repo.
+
 ## Step 2 — Survey (read-only; change nothing)
 
 Everything comes from `git` and the filesystem. Never from what a previous session said.
