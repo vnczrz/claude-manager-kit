@@ -156,6 +156,9 @@ Alongside the project's other handoffs if a convention exists (commonly
 `.planning/references/workflows/handoffs/YYYY-MM-DD-HH-MM-handoff.md`). Prefix the title so the
 kind is obvious at a glance: `# Manager Handover — <date>`.
 
+A spawned session writes its handover in its own worktree or repo, never in its parent's
+folder, so a `/resume`-style read at any level finds only its own level's file.
+
 Commit it. A handoff that lives only in a chat window has already failed at its one job.
 
 ## Anti-patterns

@@ -91,6 +91,9 @@ Also record tickets that were issued and then overtaken by events, and say what 
 In the director's artifact repo, alongside the other handovers. The charter names the path;
 do not assume one. Prefix the title so the kind is obvious: `# Director Handover — <date>`.
 
+A spawned session writes its handover in its own worktree or repo, never in its parent's
+folder, so a `/resume`-style read at any level finds only its own level's file.
+
 Commit it and push it. A handoff on one disk has failed at half its job, and a handoff in a
 chat window has failed at all of it.
 
