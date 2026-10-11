@@ -51,6 +51,18 @@ the same; you just re-copy after pulling updates.)
 Verify: start any Claude Code session and ask it to list available skills — the seven above
 should appear.
 
+## The companion mod
+
+This kit is how a window thinks: the skills and the bootstrap prose. Its companion,
+[chain-of-command](https://github.com/vnc-ufc/chain-of-command), is what the terminal does:
+the `chain` mod supplies `/spawn` to start sessions, the tree that shows who started whom,
+the guards, and `/show`. The bootstrap prompts assume both. Install the mod at user scope:
+
+```bash
+claude plugin marketplace add vnc-ufc/chain-of-command
+claude plugin install chain@chain-of-command --scope user
+```
+
 ## Stand up a manager
 
 1. Open a Claude Code session **in your parent dev directory** (e.g. `~/Dev`), not inside
