@@ -20,7 +20,7 @@ close every phase with a plain-language debrief.
 
 | File | What it is |
 |---|---|
-| `BOOTSTRAP.md` | Paste-ready prompt that stands up a manager window at your dev root. Staged with hard gates — the agent surveys and reports before it writes anything. |
+| `BOOTSTRAP.md` | Paste-ready prompts for the two orchestrating levels: a director above every repo, and a manager per repo or dev directory. The manager prompt is staged with hard gates — the agent surveys and reports before it writes anything. |
 | `skills/board` | Rebuild THE BOARD from ground truth in any directory — portfolio mode at a dev root (one row per project) or project mode inside a repo. Optionally persists as a kanban `BOARD.md`: surveyed zone regenerated every run, curated cards never touched, contradictions flagged as drift. |
 | `skills/unknowns` | Pre-fan-out unknowns pass: the four Rumsfeld quadrants walked against the dispatch being prepared, a domain primer when the owner is new to the territory, and each unknown routed to its cheapest resolution (interview, reference, probe, prototype) before tokens get spent. |
 | `skills/manager-handover` | End-of-session handoff for an orchestrator window: the board, delegations in flight, standing rulings, retractions, open threads — the map, not the narrative. |
