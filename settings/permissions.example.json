@@ -1,0 +1,23 @@
+{
+  "_comment": "Copy the permissions block into ~/.claude/settings.json. Delete every key that starts with an underscore first. These rules ask before a remote, an upstream push or an edit in a synced folder. Change the two Edit paths to your own synced folders. The merge-ask and first-push-ask hooks ship with the chain plugin repo, not here.",
+  "permissions": {
+    "ask": [
+      "Bash(git remote add *)",
+      "Bash(git push -u *)",
+      "Bash(git push --set-upstream *)",
+      "Bash(git branch --set-upstream-to *)",
+      "Edit(~/Documents/**)",
+      "Edit(~/Desktop/**)"
+    ]
+  },
+  "_example_read_only_repo": {
+    "_comment": "Example only. Put this block in <read-only-repo>/.claude/settings.local.json. It denies commits, pushes and pull requests there. Local edits for testing stay allowed. Use deny only for a rule with zero exceptions.",
+    "permissions": {
+      "deny": [
+        "Bash(git commit *)",
+        "Bash(git push *)",
+        "Bash(gh pr create *)"
+      ]
+    }
+  }
+}
