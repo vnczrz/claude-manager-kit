@@ -34,6 +34,8 @@ description: Saves this window's state so a cleared or new session continues
    open guesses, retractions, and what this window was waiting on.
 5. Read your role file: roles/director.md, roles/manager.md or roles/worker.md.
 6. Save to .planning/handoffs/<date>-<role>.md.
+   - A spawned session saves in its own worktree or repo, never in its parent's folder, so a
+     resume at any level finds only its own level's file.
    - Check the branch first.
    - Commit this session's files only, by named path. Never use `git add -A` or `commit -a`.
    - List other uncommitted changes for the owner.
