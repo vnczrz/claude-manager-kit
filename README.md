@@ -26,6 +26,9 @@ close every phase with a plain-language debrief.
 | `skills/handover` | One handover for every window kind (director, manager, working): saves state, chain, open threads and a resume prompt so a cleared session continues without loss. |
 | `skills/debrief` | Explain finished work to someone who wasn't in the weeds. Every weakness gets two explicit verdicts — observable? fixable? — and an honest classification: trade-off, open bet, or unnoticed gap. |
 | `skills/debug-no-bs` | Debugging discipline: no analysis until the full source trace is read end-to-end. Grep locates code; it is never evidence. |
+| `agents/` | The four agent files: `worker`, `checker`, `orchestrator`, `Explore`. They set the model, tools and turn limit for each helper. Copy them to `~/.claude/agents/`. |
+| `settings/` | `permissions.example.json`: ask rules for remotes, upstream pushes and synced-folder edits, plus an example deny block for a read-only repo. The merge-ask and first-push-ask hooks ship with the chain plugin repo, not here. |
+| `templates/` | `charter.md` (a charter with placeholders), `tests.md` (ten test tasks), `apply-checklist.md` (the ten steps, and what to adapt). |
 
 ## Install on a new machine
 
@@ -66,10 +69,16 @@ claude plugin install chain@chain-of-command --scope user
 1. Open a Claude Code session **in your parent dev directory** (e.g. `~/Dev`), not inside
    any project — the manager's root defines what it can see.
 2. Paste the contents of `BOOTSTRAP.md`.
-3. The agent surveys the machine and presents THE BOARD, then stops. Everything after that
+3. The agent audits the machine against the kit and shows a table, then stops. After your
+   go, it surveys and presents THE BOARD, then stops. Everything after that
    is gated on your go: the charter, the skill check, tool installs, and finally a
    shakedown where you interrogate the charter (the bootstrap suggests a grill-style
    skill for this) and have the manager produce its first real handover.
+
+## Run the tune-up on another machine
+
+Clone the kit there, open a session in the dev root and paste `BOOTSTRAP.md`.
+Stage 0 audits the machine read-only. Later stages install only what you approve at its gate.
 
 ## Deliberately not in this repo
 
