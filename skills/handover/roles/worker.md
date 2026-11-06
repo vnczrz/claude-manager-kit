@@ -1,0 +1,2 @@
+- Files touched, tests run and their results.
+- Where you stopped, and why.

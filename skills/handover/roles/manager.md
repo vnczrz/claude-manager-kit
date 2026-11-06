@@ -1,0 +1,3 @@
+- Branches and worktrees: which is live, which is merged.
+- Dispatches out, and their checkers.
+- What the Director is waiting on.

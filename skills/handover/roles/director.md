@@ -1,0 +1,3 @@
+- Registry changes since the last handover.
+- Open tickets by manager, with the pointer each one owes.
+- Owner rulings made in this window.
