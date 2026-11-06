@@ -106,8 +106,8 @@ overhead.
 
 ## Stage 3 — Skill check
 
-Confirm the seven kit skills are installed and loadable: `board`, `unknowns`,
-`manager-handover`, `context-handover`, `debrief`, `debug-no-bs`, `wwcd`. If any are
+Confirm the six kit skills are installed and loadable: `board`, `unknowns`,
+`manager-handover`, `context-handover`, `debrief`, `debug-no-bs`. If any are
 missing, link them from the cloned claude-manager-kit repo per its README. Report the
 result in one line. Standing practice once running: the `unknowns` skill runs BEFORE any
 fan-out whose instruction hasn't been pressure-tested.

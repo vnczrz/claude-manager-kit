@@ -27,7 +27,6 @@ close every phase with a plain-language debrief.
 | `skills/context-handover` | End-of-session handoff for a working window: what landed vs what was only discussed, undocumented decisions, a copy-pasteable resume prompt. |
 | `skills/debrief` | Explain finished work to someone who wasn't in the weeds. Every weakness gets two explicit verdicts — observable? fixable? — and an honest classification: trade-off, open bet, or unnoticed gap. |
 | `skills/debug-no-bs` | Debugging discipline: no analysis until the full source trace is read end-to-end. Grep locates code; it is never evidence. |
-| `skills/wwcd` | "What Would Codex Do" — an eleven-check rigor gate run before finalizing plans, committing migrations, or claiming completeness. |
 
 ## Install on a new machine
 
