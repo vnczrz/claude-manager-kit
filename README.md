@@ -23,8 +23,7 @@ close every phase with a plain-language debrief.
 | `BOOTSTRAP.md` | Paste-ready prompt that stands up a manager window at your dev root. Staged with hard gates — the agent surveys and reports before it writes anything. |
 | `skills/board` | Rebuild THE BOARD from ground truth in any directory — portfolio mode at a dev root (one row per project) or project mode inside a repo. Optionally persists as a kanban `BOARD.md`: surveyed zone regenerated every run, curated cards never touched, contradictions flagged as drift. |
 | `skills/unknowns` | Pre-fan-out unknowns pass: the four Rumsfeld quadrants walked against the dispatch being prepared, a domain primer when the owner is new to the territory, and each unknown routed to its cheapest resolution (interview, reference, probe, prototype) before tokens get spent. |
-| `skills/manager-handover` | End-of-session handoff for an orchestrator window: the board, delegations in flight, standing rulings, retractions, open threads — the map, not the narrative. |
-| `skills/context-handover` | End-of-session handoff for a working window: what landed vs what was only discussed, undocumented decisions, a copy-pasteable resume prompt. |
+| `skills/handover` | One handover for every window kind (director, manager, working): saves state, chain, open threads and a resume prompt so a cleared session continues without loss. |
 | `skills/debrief` | Explain finished work to someone who wasn't in the weeds. Every weakness gets two explicit verdicts — observable? fixable? — and an honest classification: trade-off, open bet, or unnoticed gap. |
 | `skills/debug-no-bs` | Debugging discipline: no analysis until the full source trace is read end-to-end. Grep locates code; it is never evidence. |
 

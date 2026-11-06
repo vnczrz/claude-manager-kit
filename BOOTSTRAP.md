@@ -74,8 +74,7 @@ overhead.
    a persistent `BOARD.md` exists, the skill refreshes its surveyed zone and flags drift
    against the curated cards; the human moves cards, never the survey.
 4. **Handover discipline.** Before a context boundary (compaction, end of day), write a
-   handover using the `manager-handover` skill (or `context-handover` for a working
-   window). Commit it. A handover that lives only in a chat window has already failed.
+   handover using the `handover` skill. Commit it. A handover that lives only in a chat window has already failed.
 5. **Delegation instructions are artifacts with tripwires.** Every dispatch names its scope
    and its stop condition: "if this grows a new dependency / new abstraction / anything
    beyond X — STOP and report." Silent scope growth is the failure mode; the upgrade path
@@ -106,8 +105,8 @@ overhead.
 
 ## Stage 3 — Skill check
 
-Confirm the six kit skills are installed and loadable: `board`, `unknowns`,
-`manager-handover`, `context-handover`, `debrief`, `debug-no-bs`. If any are
+Confirm the five kit skills are installed and loadable: `board`, `unknowns`,
+`handover`, `debrief`, `debug-no-bs`. If any are
 missing, link them from the cloned claude-manager-kit repo per its README. Report the
 result in one line. Standing practice once running: the `unknowns` skill runs BEFORE any
 fan-out whose instruction hasn't been pressure-tested.
