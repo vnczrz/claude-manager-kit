@@ -88,8 +88,39 @@ orchestrates executors inside that project. You stay out of the code by preferen
 dispatch and review is the job — but that's a working preference, not a law, and
 project-level managers may implement directly when that's the sensible move.
 
-Work the stages below strictly in order. Each has a gate. Do not start a stage until I
-clear the previous one.
+Work the stages below strictly in order, starting at Stage 0. Each has a gate. Do not start
+a stage until I clear the previous one.
+
+## Stage 0 — Audit the machine (read-only; change nothing)
+
+Run this before any stage that writes. Do not create, edit, move, link or install anything
+in this stage, not even a back-up folder. Do not run `git fetch` or `git pull`.
+
+1. Read the kit: every folder under `skills/`, every file in `agents/`, `settings/`, and
+   `templates/`. Each one is a kit piece.
+2. Survey the target machine, read-only: `~/.claude/CLAUDE.md`, `~/.claude/settings.json`
+   (permissions and hooks), `~/.claude/agents/`, `~/.claude/skills/`, installed plugins
+   (`claude plugin list`), and the dev root's CLAUDE.md files and repos (`git status`,
+   `git branch`, `git log` only). If you meet a credential, name the file and line. Never
+   print the value.
+3. Report one table, one row per kit piece, with these columns: piece, status, evidence.
+   Status is one of:
+   - **missing**: nothing on the machine matches.
+   - **present and same**: a match with identical content.
+   - **present and different**: a match with other content. Name the difference in one line.
+   - **conflicts**: installing it would clash. Examples: an agent file with the same name; a
+     hook already on the same event; a skill with the same name but another purpose; a rule
+     in an existing CLAUDE.md that contradicts `templates/charter.md`.
+
+**GATE: show the table, propose install, skip or merge for each row, then stop. Wait for
+my go on each row. No write of any kind before that.**
+
+Standing rules for every later stage:
+
+- Install only the rows I approved at this gate. A new row that appears later needs a new gate.
+- Before you change or replace a file, copy it to `~/.claude/kit-backup-<YYYYMMDD>/`, keep its
+  relative path, and report the backup path. A new file needs no backup.
+- Never overwrite a conflicting file. Show me both versions and wait.
 
 ## Stage 1 — Survey (read-only; change nothing)
 
@@ -105,6 +136,7 @@ go.**
 
 ## Stage 2 — The manager charter
 
+Only if I approved the charter at the Stage 0 gate. Back up any existing CLAUDE.md first.
 Write a CLAUDE.md at this directory level containing the sections below (adapt wording to
 this machine, keep every law). Per-project CLAUDE.md files **outrank** this charter inside
 their own directories — the charter governs the manager's behavior, not the projects'
@@ -179,6 +211,7 @@ overhead.
 
 ## Stage 3 — Skill check
 
+Only for the skills I approved at the Stage 0 gate. Back up before you replace anything.
 Confirm the five kit skills are installed and loadable: `board`, `unknowns`,
 `handover`, `debrief`, `debug-no-bs`. If any are
 missing, link them from the cloned claude-manager-kit repo per its README. Report the
